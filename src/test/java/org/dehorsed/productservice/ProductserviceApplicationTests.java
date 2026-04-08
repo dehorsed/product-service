@@ -86,4 +86,25 @@ class ProductserviceApplicationTests {
         return new ProductRequest("IPhone", "Phone", BigDecimal.valueOf(1000));
     }
 
+    @Test
+    void getById_withExistingId_returnsProduct() throws Exception {
+        // Given
+        Product savedProduct = productRepository.save(new Product("IPhone", "Phone", BigDecimal.valueOf(1000)));
+
+        // When & Then
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/product/{id}", savedProduct.getId()))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(savedProduct.getId()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("IPhone"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.description").value("Phone"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.price").value(1000));
+    }
+
+    @Test
+    void getById_withNonExistingId_returnsNotFound() throws Exception {
+        String nonExistingId = "67c0f8a2f9b5c6d4e2a1b3c5";
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/product/{id}", nonExistingId))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
+    }
 }
