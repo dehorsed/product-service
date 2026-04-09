@@ -37,6 +37,7 @@ dependencies {
 	testImplementation("org.testcontainers:testcontainers:2.0.4")
 	testImplementation("org.testcontainers:testcontainers-junit-jupiter:2.0.4")
 	testImplementation("org.testcontainers:testcontainers-mongodb:2.0.4")
+    testImplementation("org.springframework.boot:spring-boot-testcontainers")
 
 	// Other tests packages
 	testImplementation("org.springframework.boot:spring-boot-starter-data-mongodb-test")
