@@ -33,3 +33,5 @@ jobs:
 
       - name: Build and test
         run: ./gradlew clean build --no-daemon --stacktrace
+        env:
+          PRODUCT_SERVICE_MONGODB_URI: mongodb://localhost:27017/mongodb
