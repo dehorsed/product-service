@@ -49,6 +49,7 @@ class ProductserviceApplicationTests {
     void setUp() {
         RestAssured.baseURI = "http://localhost";
         RestAssured.port = serverPort;
+        productRepository.deleteAll();
     }
 
     private ProductRequest createProductRequest() {
