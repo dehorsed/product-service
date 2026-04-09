@@ -1,8 +1,8 @@
-package org.dehorsed.productservice.mapper;
+package org.dehorsed.microservices.product.mapper;
 
-import org.dehorsed.productservice.dto.ProductRequest;
-import org.dehorsed.productservice.dto.ProductResponse;
-import org.dehorsed.productservice.model.Product;
+import org.dehorsed.microservices.product.dto.ProductRequest;
+import org.dehorsed.microservices.product.dto.ProductResponse;
+import org.dehorsed.microservices.product.model.Product;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;

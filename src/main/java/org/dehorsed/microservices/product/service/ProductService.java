@@ -1,12 +1,12 @@
-package org.dehorsed.productservice.service;
+package org.dehorsed.microservices.product.service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import org.dehorsed.productservice.dto.ProductRequest;
-import org.dehorsed.productservice.dto.ProductResponse;
-import org.dehorsed.productservice.mapper.ProductMapper;
-import org.dehorsed.productservice.repository.ProductRepository;
+import org.dehorsed.microservices.product.dto.ProductRequest;
+import org.dehorsed.microservices.product.dto.ProductResponse;
+import org.dehorsed.microservices.product.mapper.ProductMapper;
+import org.dehorsed.microservices.product.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;

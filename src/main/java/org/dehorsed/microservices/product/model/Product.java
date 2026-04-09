@@ -1,4 +1,4 @@
-package org.dehorsed.productservice.model;
+package org.dehorsed.microservices.product.model;
 
 import java.math.BigDecimal;
 

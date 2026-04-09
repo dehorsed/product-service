@@ -1,10 +1,10 @@
-package org.dehorsed.productservice.controller;
+package org.dehorsed.microservices.product.controller;
 
 import java.util.List;
 
-import org.dehorsed.productservice.dto.ProductRequest;
-import org.dehorsed.productservice.dto.ProductResponse;
-import org.dehorsed.productservice.service.ProductService;
+import org.dehorsed.microservices.product.dto.ProductRequest;
+import org.dehorsed.microservices.product.dto.ProductResponse;
+import org.dehorsed.microservices.product.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

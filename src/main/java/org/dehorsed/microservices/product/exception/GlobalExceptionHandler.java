@@ -1,4 +1,4 @@
-package org.dehorsed.productservice.exception;
+package org.dehorsed.microservices.product.exception;
 
 import java.util.NoSuchElementException;
 
