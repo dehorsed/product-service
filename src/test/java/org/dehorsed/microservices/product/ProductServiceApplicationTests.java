@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
@@ -20,16 +21,20 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.mongodb.MongoDBContainer;
 
+import io.restassured.RestAssured;
 import tools.jackson.databind.ObjectMapper;
 
 @Testcontainers
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 class ProductserviceApplicationTests {
 
     @Container
     @ServiceConnection
     static MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:8.0");
+
+    @LocalServerPort
+    private Integer serverPort;
 
     @Autowired
     private MockMvc mockMvc;
@@ -42,7 +47,8 @@ class ProductserviceApplicationTests {
 
     @BeforeEach
     void setUp() {
-        productRepository.deleteAll();
+        RestAssured.baseURI = "http://localhost";
+        RestAssured.port = serverPort;
     }
 
     private ProductRequest createProductRequest() {
