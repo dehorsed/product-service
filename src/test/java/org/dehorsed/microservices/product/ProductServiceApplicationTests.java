@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import org.dehorsed.microservices.product.dto.ProductRequest;
 import org.dehorsed.microservices.product.model.Product;
 import org.dehorsed.microservices.product.repository.ProductRepository;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ class ProductserviceApplicationTests {
 
     @Container
     @ServiceConnection
-    static MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:6.0");
+    static MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:8.0");
 
     @Autowired
     private MockMvc mockMvc;
@@ -57,8 +58,8 @@ class ProductserviceApplicationTests {
 
         var products = productRepository.findAll();
 
-        org.junit.jupiter.api.Assertions.assertEquals(1, products.size());
-        org.junit.jupiter.api.Assertions.assertEquals("IPhone", products.get(0).getName());
+        Assertions.assertEquals(1, products.size());
+        Assertions.assertEquals("IPhone", products.get(0).getName());
     }
 
     @Test
