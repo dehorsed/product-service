@@ -18,17 +18,17 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
 
-    public ProductResponse create(ProductRequest productRequest) {
-        return productMapper.toResponseDto(productRepository.save(productMapper.toEntity(productRequest)));
+    public ProductResponse createProduct(ProductRequest productRequest) {
+        return productMapper.toResponse(productRepository.save(productMapper.toEntity(productRequest)));
     }
 
-    public List<ProductResponse> getAll() {
-        return productRepository.findAll().stream().map((productEntity) -> productMapper.toResponseDto(productEntity))
+    public List<ProductResponse> getAllProducts() {
+        return productRepository.findAll().stream().map((productEntity) -> productMapper.toResponse(productEntity))
                 .toList();
     }
 
-    public ProductResponse getById(String id) {
-        return productMapper.toResponseDto(
+    public ProductResponse getProductById(String id) {
+        return productMapper.toResponse(
                 productRepository.findById(id)
                         .orElseThrow(() -> new NoSuchElementException("User with id " + id + " not found")));
     }
